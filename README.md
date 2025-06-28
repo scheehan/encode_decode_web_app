@@ -148,8 +148,8 @@ if you interested to explore more and try it yourself, may head over to below li
 ### clone repo
 
 ```html
-git clone https://github.com/scheehan/webapp_template  
-cd webapp_template
+git clone https://github.com/scheehan/encode_decode_web_app.git
+cd encode_decode_web_app
 ```
 
 ## enable virtual env
