@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/foundation.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}">
+
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css">
+
+    <script src="{{url_for('static', filename='js/htmx.min.js')}}"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+
+    <!-- remove favicon request from chrome ext -->
+    <link rel="icon" href="data:,">
+        
+    </head>
+    <body>
+
+      <div class="cell shrink header medium-cell-block-container"></div>
+
+      <div class="grid-x grid-margin-x aligh-center-middle text-center" style="height: 150px;"></div>
+
+      <div class="grid-x grid-margin-x">
+      <div class="cell small-1"></div>
+
+      <!-- Form container section Start -->
+
+      <div class="cell small-4">
+        <form id="my-form" name="e_box" action="" 
+                        hx-post="/"
+                        hx-target="#output_results"
+                        hx-on::after-request="if(event.detail.successful) this.reset()">
+
+            <label for="example"><h6>Encode/Decode ToolKit</h6></label>
+            <textarea type="text" placeholder="string data" id="e_box" name="e_box" rows="8" cols="40" maxlength="168" style="width: 95%; font-size: 22px;" required></textarea><br>
+          </div>
+          <div class="cell auto">
+
+          <fieldset>
+            <legend>Encode Or Decode</legend>
+            <input type="radio" name="stype" value="B64e" id="formRed" checked="checked"><label for="formRed">Encode</label>
+            <input type="radio" name="stype" value="B64d" id="formBlue"><label for="formBlue">Decode</label>
+          </fieldset>
+          <fieldset>
+            <legend>Encoding Binary Data Functions</legend>
+            <input type="radio" name="functions" value="Base64" id="formB64" checked="checked"><label for="formB64">Base64</label>
+            <input type="radio" name="functions" value="Base85" id="formB85"><label for="formB85">Base85</label>
+            <input type="radio" name="functions" value="Ascii85" id="forma85"><label for="forma85">Ascii85</label>
+            <input type="radio" name="functions" value="z85" id="formz85"><label for="formz85">z85</label>
+          </fieldset>
+          <div style="margin-top: 35px;">
+            <label for="e_box_sub" class="button">Submit</label>
+            <input type="submit" id="e_box_sub" class="show-for-sr">
+          </div>
+          </div>
+        </form>
+      </div>
+      </div>
+
+      <!-- Form container section End -->
+
+      <!-- Ajax output and Jinja2 output section -->  
+      <div class="grid-x">
+        <div class="cell medium-1"></div>
+        {% block returnoutput %}
+        <div id="output_results"></div>
+        {% endblock returnoutput %}
+        </div>
+
+      </div>
+    
+
+    <script src="{{url_for('static', filename='js/vendor/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/vendor/what-input.js')}}"></script>
+    <script src="{{url_for('static', filename='js/vendor/foundation.js')}}"></script>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+
+    </body>
+    </html>

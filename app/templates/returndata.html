@@ -1,0 +1,16 @@
+    {% block returnoutput %}
+    
+        <div id="output_results" name="mydataoutputname"><h3>{{ output_data }}</h3>
+            <button class="button" _="on click
+                                    writeText(my previousElementSibling's innerText) on navigator.clipboard
+                                    put 'Copied!' into #mycp
+                                    toggle .hide on #mysvg
+                                    wait 1s 
+                                    toggle .hide on #mysvg
+                                    put 'Copy' into #mycp"><img id="mysvg" src="{{url_for('static', filename='images/fi-page-copy.svg')}}" width="29" height="29">
+
+                                    <div id="mycp">Copy</div>
+            </button>                        
+        </div> 
+
+    {% endblock returnoutput %}
