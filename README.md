@@ -3,7 +3,7 @@
 
 This round of article we are going to explore a bit about how [base64][2] works, and dive into [base85][3] mechanism.  
 
-![b4_flowchart](/app/static/images/base85_title_img.png)
+[![b4_flowchart](/app/static/images/base85_title_img.png)](https://youtu.be/1AzW8s3Xumg)
 
 ## Quick info about how base64 works
 
